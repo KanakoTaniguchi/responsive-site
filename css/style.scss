@@ -1,0 +1,195 @@
+@import "compass";
+// font-family
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #788e6e;
+$subColor: #ede4e1;
+$keyColor: #dcf0cc;
+$fontColor: #c3c7d9;
+
+
+/* Base
+------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em; 
+  background-color: $baseColor;
+}
+
+a {
+  @include link-colors($keyColor, darken($keyColor, 10%), lighten($keyColor, 5%), darken($keyColor, 10%));
+  text-decoration: none;
+}
+
+/* Align
+------------------------------------------------------------*/
+.text-center {
+  text-align: center;
+}
+
+/* Layout
+------------------------------------------------------------*/
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Font
+------------------------------------------------------------*/
+.uppercase {
+  text-transform: uppercase;
+}
+
+// desktop
+@media (min-width: 1025px) {
+
+  /* Base
+  ------------------------------------------------------------*/
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Header
+------------------------------------------------------------*/
+.top-image{
+    width: 100%;
+    height: 500px;
+    background-image: url("../images/L7-top.jpg"); 
+    background-size: cover;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+}
+
+// desktop
+@media (max-width: 768px) {
+
+  /* Base
+  ------------------------------------------------------------*/
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+.top-image{
+    width: 100%;
+    height: 250px;
+    background-image: url("../images/L7-top.jpg"); 
+    background-size: cover;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+}
+    
+    
+}
+
+
+/* Contents
+------------------------------------------------------------*/
+// Common Styles
+section {
+  padding: 60px 0;
+  .container {
+    width: 90%;
+    @extend .block-center;
+  }
+  h2 {
+    font-size: 3.2rem;
+    @extend .uppercase;
+  }
+}
+
+// Skills
+#skills {
+  background-color: $subColor;
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);    // スキルボックスを縦に並べる
+  }
+  h2 {
+    color: $baseColor;
+    margin-bottom: 10px;
+  }
+  .skill-title-text-box {
+    max-width: 60%;
+    margin: 0 auto 50px auto;
+    background-color: $subColor;
+  }
+  .skill-title-text {
+    margin-bottom: 1px;
+    color: #8f7f79;
+  }
+  .skill-box {
+    @include flex(1);
+    margin: 10px 0;                     // 上下にマージン
+    padding: 20px;
+    background-color: $baseColor;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+  }
+  h3 {
+    @extend .uppercase;
+    color: $keyColor;
+    margin-bottom:10px;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+}
+
+// desktop
+@media (min-width: 1025px) {
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Skills
+  #skills {
+    .container {
+      @include flex-direction(row);     // スキルボックスを横に並べる
+      justify-content: space-between;
+    }
+    .skill-box {
+      margin: 0 10px;                   // 左右にマージン
+    }
+  }
+}
+
+.wrapper .bottom-box {
+  display: table-cell;
+  width: 20%;
+  height: 80px;
+  vertical-align: middle;
+  text-align: center;
+}
+.wrapper {
+  display: table;
+  border-spacing: 15px 0;
+  border-collapse: separate;
+  margin: 0 auto;
+}
+.wrapper .box {
+  display: table-cell;
+  width: 200px;
+  height: 80px;
+  vertical-align: middle;
+  text-align: center;
+  
+}
+.radius {
+  background-color: #ede4e1;
+  color: #8f7f79;
+  border-radius: 10px;
+}
